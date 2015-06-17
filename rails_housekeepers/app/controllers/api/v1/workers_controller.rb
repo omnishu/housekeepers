@@ -1,4 +1,6 @@
-class WorkersController < ApplicationController
+class Api::V1::WorkersController < ApplicationController
+
+  respond_to :json
   before_action :set_worker, only: [:show, :edit, :update, :destroy]
 
   # GET /workers

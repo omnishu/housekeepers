@@ -1,4 +1,6 @@
-class ContactsController < ApplicationController
+class Api::V1::ContactsController < ApplicationController
+
+  respond_to :json
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
 
   # GET /contacts

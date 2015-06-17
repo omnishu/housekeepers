@@ -61,6 +61,11 @@ gem 'cities'
 
 # Gems for Authentication
 gem 'devise'
+gem 'omniauth'
+gem 'devise_token_auth'
 
-# Gems for authorization
+# Gems for Authorization
 gem 'cancan'
+
+# Gem for CORS
+gem 'rack-cors', :require => 'rack/cors'

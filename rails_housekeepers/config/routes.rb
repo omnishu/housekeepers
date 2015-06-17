@@ -1,13 +1,28 @@
 Rails.application.routes.draw do
+
   devise_for :users
-  resources :contacts
-  resources :feedbacks
-  resources :workers
+
+  namespace :api do
+    scope :v1 do
+      
+      # devise_token_auth mounted here
+      mount_devise_token_auth_for 'User', at: 'auth'
+      
+      # Workers module's routes mounted here
+      resources :workers do
+        member do
+          resources :contacts
+          resources :feedbacks
+        end
+      end
+
+    end
+  end
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
