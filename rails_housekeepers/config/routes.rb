@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace :api do
-    scope :v1 do
+    namespace :v1 do
       
       # devise_token_auth mounted here
       mount_devise_token_auth_for 'User', at: 'auth'

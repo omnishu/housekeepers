@@ -1,12 +1,12 @@
-class Api::V1::ContactsController < ApplicationController
+class Api::V1::ContactsController < Api::V1::ApiController
 
   respond_to :json
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
-
   # GET /contacts
   # GET /contacts.json
   def index
     @contacts = Contact.all
+    respond_with @contacts
   end
 
   # GET /contacts/1
